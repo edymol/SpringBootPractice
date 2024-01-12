@@ -8,8 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import xyz.edydev.location.entities.Location;
 
 public interface LocationRepository extends JpaRepository<Location, Integer> {
-	@Query("SELECT type, COUNT(type) AS type_count\n"
-			+ "FROM location\n"
-			+ "GROUP BY type;")
-	public List<Object[]> findTypeAndTypeCount();
+    @Query("SELECT type AS type, COUNT(type) AS typeCount FROM Location GROUP BY type")
+    List<Object[]> findTypeAndTypeCount();
 }

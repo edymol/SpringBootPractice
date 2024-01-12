@@ -10,15 +10,27 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jakarta.servlet.ServletContext;
 import xyz.edydev.location.entities.Location;
+import xyz.edydev.location.repos.LocationRepository;
 import xyz.edydev.location.service.LocationService;
 import xyz.edydev.location.util.EmailUtili;
+import xyz.edydev.location.util.ReportUtil;
 
 @Controller
 public class LocationController {
 	
 	@Autowired
 	LocationService service;
+	
+	@Autowired
+	LocationRepository repository;
+	
+	@Autowired
+	ReportUtil reportUtil;
+	
+	@Autowired
+	ServletContext sc;
 	
 	@Autowired
 	EmailUtili email;
@@ -66,6 +78,13 @@ public class LocationController {
 	    modelMap.addAttribute("locations", locations);
 	    return "displayLocations"; 
 	}
-
+	
+	@GetMapping("/generateReport")
+	public String generateReport() {
+		String path = sc.getRealPath("/");
+		List<Object[]> data = repository.findTypeAndTypeCount();
+		reportUtil.generatePieChart(path, data);
+		return "report";
+	}
 
 }

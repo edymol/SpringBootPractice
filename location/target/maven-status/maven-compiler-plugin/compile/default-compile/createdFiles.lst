@@ -1,0 +1,10 @@
+xyz/edydev/location/util/ReportUtilImpl.class
+xyz/edydev/location/repos/LocationRepository.class
+xyz/edydev/location/util/ReportUtil.class
+xyz/edydev/location/controllers/LocationController.class
+xyz/edydev/location/util/EmailUtilImpl.class
+xyz/edydev/location/service/LocationService.class
+xyz/edydev/location/entities/Location.class
+xyz/edydev/location/service/LocationServiceImpl.class
+xyz/edydev/location/util/EmailUtili.class
+xyz/edydev/location/LocationApplication.class
