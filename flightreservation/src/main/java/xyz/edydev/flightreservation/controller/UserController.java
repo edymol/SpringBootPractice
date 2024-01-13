@@ -30,14 +30,14 @@ public class UserController {
 
 	@PostMapping("/login")
 	public String login(@RequestParam("email") String email, @RequestParam("password") String password,
-			ModelMap modelMap) {
-		User user = userRepository.findByEmail(email);
-		if (user.getPassword().equals(password)) {
-			return "findFlights";
-		} else {
-			modelMap.addAttribute("msg", "Invalid user name or password. Please try again.");
-		}
-		return "login/login";
+	                    ModelMap modelMap) {
+	    User user = userRepository.findByEmail(email);
+	    if (user != null && user.getPassword().equals(password)) {
+	        return "findFlights";
+	    } else {
+	        modelMap.addAttribute("msg", "Invalid user name or password. Please try again.");
+	    }
+	    return "login/login";
 	}
 
 }

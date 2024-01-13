@@ -1,34 +1,82 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Complete Reservation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Complete Reservation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        pre {
+            white-space: pre-wrap;
+        }
+    </style>
 </head>
+
 <body>
-<h2>Complete Reservation</h2>
-Airline: <span th:text="${flight.operatingAirlines}"/> <br/>
-Departure City:  <span th:text="${flight.departureCity}"/><br/>
-Arrival City:<span th:text="${flight.departureCity}"/><br/>
+    <h2>Complete Reservation</h2>
+    <p>
+        Airline: <span th:text="${flight.operatingAirlines}"></span> <br/>
+        Departure City: <span th:text="${flight.departureCity}"></span><br/>
+        Arrival City: <span th:text="${flight.arrivalCity}"></span><br/>
+    </p>
 
-<form action="completeReservation" method="post"/>
-<pre>
-<h2>Passenger Details:</h2>
-First Name:<input type="text" name="passengerFirstName"/>
-Last Name:<input type="text" name="passengerLastName"/>
-Email:<input type="text" name="passengerEmail"/>
-Phone:<input type="text" name="passengerPhone"/>
+    <form action="completeReservation" method="post">
+        <h2>Passenger Details:</h2>
+        <label>First Name:</label><input type="text" name="passengerFirstName"/>
+        <label>Last Name:</label><input type="text" name="passengerLastName"/>
+        <label>Email:</label><input type="text" name="passengerEmail"/>
+        <label>Phone:</label><input type="text" name="passengerPhone"/>
 
-<h2>Card Details:</h2>
-Name on the card:<input type="text" name="nameOnTheCard"/>
-Card No:<input type="text" name="cardNumber"/>
-Expiry Date:<input type="text" name="expirationDate"/>
-Three Digit Sec Code:<input type="text" name="securityCode"/>
+        <h2>Card Details:</h2>
+        <label>Name on the card:</label><input type="text" name="nameOnTheCard"/>
+        <label>Card No:</label><input type="text" name="cardNumber"/>
+        <label>Expiry Date:</label><input type="text" name="expirationDate"/>
+        <label>Three Digit Sec Code:</label><input type="text" name="securityCode"/>
 
-<input type="hidden" name="flightId" th:value="${flight.id}"/>
-<input type="submit" value="confirm"/>
-</pre>
-</form>
+        <input type="hidden" name="flightId" th:value="${flight.id}"/>
+        <input type="submit" value="Confirm"/>
+    </form>
 </body>
+
 </html>

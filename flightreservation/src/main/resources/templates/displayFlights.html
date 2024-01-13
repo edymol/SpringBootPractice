@@ -1,30 +1,73 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Flights</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Flights</title>
+
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f5f5f5;
+			margin: 20px;
+		}
+
+		h2 {
+			color: #333;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 20px;
+		}
+
+		th,
+		td {
+			border: 1px solid #ddd;
+			padding: 8px;
+			text-align: left;
+		}
+
+		th {
+			background-color: #4CAF50;
+			color: white;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
+		a {
+			text-decoration: none;
+			color: #008CBA;
+		}
+
+		a:hover {
+			color: #005580;
+		}
+	</style>
 </head>
+
 <body>
-<h2>Flights:</h2>
-<table>
-<tr><th>Airlines</th>
-<th>Departure City</th>
-<th>Arrival City</th>
-<th>Departure Time</th>
+	<h2>Flights:</h2>
+	<table>
+		<tr>
+			<th>Airlines</th>
+			<th>Departure City</th>
+			<th>Arrival City</th>
+			<th>Departure Time</th>
+			<th>Action</th>
+		</tr>
 
-</tr>
-
-
-<tr th:each="flight:${flights}">
-<td th:text="${flight.operatingAirlines}"></td>
-<td th:text="${flight.departureCity}"></td>
-<td th:text="${flight.arrivalCity}"></td>
-<td th:text="${flight.estimatedDepartureTime}"></td>
-<td><a th:href="@{'showCompleteReservation?flightId='+${flight.id}}">Select</a></td>
-</tr>
-
-
-</table>
+		<tr th:each="flight, flightStat : ${flights}" th:class="${'even ' + (flightStat.index % 2 == 0)}">
+			<td th:text="${flight.operatingAirline}"></td>
+			<td th:text="${flight.departureCity}"></td>
+			<td th:text="${flight.arrivalCity}"></td>
+			<td th:text="${flight.estimatedDepartureTime}"></td>
+			<td><a th:href="@{'showCompleteReservation?flightId=' + ${flight.id}}">Select</a></td>
+		</tr>
+	</table>
 </body>
+
 </html>

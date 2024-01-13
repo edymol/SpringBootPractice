@@ -3,16 +3,33 @@ package xyz.edydev.flightreservation.entities;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 public class Flight extends AbstractEntity {
 
+	@Column(name = "flight_number")
 	private String flightNumber;
+
+	@Column(name = "operating_airline")
 	private String operatingAirline;
+
+	@Column(name = "departure_city")
 	private String departureCity;
+
+	@Column(name = "arrival_city")
 	private String arrivalCity;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "date_of_departure")
 	private Date dateOfDeparture;
+
+	@Column(name = "estimated_departure_time")
 	private Timestamp estimatedDepartureTime;
 
 	public String getFlightNumber() {
