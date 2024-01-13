@@ -1,5 +1,6 @@
 package xyz.edydev.flightreservation.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
 /**
@@ -32,7 +33,9 @@ public class Passenger extends AbstractEntity {
     /**
      * The phone number of the passenger.
      */
+    @Column(name = "phone", length = 10)
     private String phone;
+
 
     /**
      * Gets the first name of the passenger.

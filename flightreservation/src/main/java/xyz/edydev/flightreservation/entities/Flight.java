@@ -16,7 +16,7 @@ public class Flight extends AbstractEntity {
 	@Column(name = "flight_number")
 	private String flightNumber;
 
-	@Column(name = "operating_airline")
+	@Column(name = "operating_airlines")
 	private String operatingAirline;
 
 	@Column(name = "departure_city")

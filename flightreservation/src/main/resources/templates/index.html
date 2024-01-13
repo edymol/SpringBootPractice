@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Reservation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #008CBA;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #005580;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-container {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 10px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+
+        .btn-login {
+            background-color: #008CBA;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Welcome to Flight Reservation</h1>
+
+    <p>
+        <a th:href="@{/showLogin}" class="btn btn-login">Login</a>
+        <a th:href="@{/showReg}" class="btn">Register</a>
+    </p>
+
+    <!-- Display the list of flights -->
+    <h2>Flights:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Airlines</th>
+                <th>Departure City</th>
+                <th>Arrival City</th>
+                <th>Departure Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Use Thymeleaf to iterate over the flights and display them -->
+            <tr th:each="flight : ${flights}">
+                <td th:text="${flight.operatingAirline}"></td>
+                <td th:text="${flight.departureCity}"></td>
+                <td th:text="${flight.arrivalCity}"></td>
+                <td th:utext="${#dates.format(flight.estimatedDepartureTime, 'yyyy-MM-dd HH:mm')}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Add any additional content or features as needed -->
+
+</body>
+</html>

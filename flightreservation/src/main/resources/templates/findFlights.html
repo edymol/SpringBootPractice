@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Find Flights</title>
+
+    <!-- Include jQuery and jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <style>
         body {
@@ -45,7 +51,17 @@
             cursor: pointer;
         }
     </style>
+
+    <!-- Initialize the date picker -->
+    <script>
+        $(function () {
+            $("input[name='departureDate']").datepicker({
+                dateFormat: 'mm-dd-yy'
+            });
+        });
+    </script>
 </head>
+
 <body>
     <h2>Find Flights:</h2>
     <form action="findFlights" method="post">
@@ -61,4 +77,5 @@
         <input type="submit" value="Search" />
     </form>
 </body>
+
 </html>
