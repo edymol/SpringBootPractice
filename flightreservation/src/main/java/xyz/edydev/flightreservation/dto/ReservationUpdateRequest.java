@@ -2,7 +2,7 @@ package xyz.edydev.flightreservation.dto;
 
 public class ReservationUpdateRequest {
 	private Long id;
-	private Boolean checkIn;
+	private Boolean checkedIn;
 	private int numberOfBags;
 
 	public Long getId() {
@@ -13,12 +13,12 @@ public class ReservationUpdateRequest {
 		this.id = id;
 	}
 
-	public Boolean getCheckIn() {
-		return checkIn;
+	public Boolean getCheckedIn() {
+		return checkedIn;
 	}
 
-	public void setCheckIn(Boolean checkIn) {
-		this.checkIn = checkIn;
+	public void setCheckedIn(Boolean checkedIn) {
+		this.checkedIn = checkedIn;
 	}
 
 	public int getNumberOfBags() {
@@ -28,4 +28,5 @@ public class ReservationUpdateRequest {
 	public void setNumberOfBags(int numberOfBags) {
 		this.numberOfBags = numberOfBags;
 	}
+
 }
