@@ -29,7 +29,7 @@ public class ReservationRestController {
 	    reservation.setNumberOfBags(request.getNumberOfBags());
 	    
 	   // For troubleshooting.  
-	    System.out.println("Value of checkIn in request: " + request.getCheckedIn());
+//	    System.out.println("Value of checkIn in request: " + request.getCheckedIn());
 
 
 	 // Use the value from the request, or use a default value if not provided
