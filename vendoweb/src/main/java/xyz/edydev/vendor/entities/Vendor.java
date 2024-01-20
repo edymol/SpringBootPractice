@@ -2,8 +2,10 @@ package xyz.edydev.vendor.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "vendor")
 public class Vendor {
 
 	@Id
